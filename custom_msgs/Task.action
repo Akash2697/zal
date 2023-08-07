@@ -1,0 +1,9 @@
+# Request
+float32[] goal_pose
+float32[] velocity_vector
+---
+#Result
+bool goal_reached
+---
+#Feedback
+int32 goals_completed 

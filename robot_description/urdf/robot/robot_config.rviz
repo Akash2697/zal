@@ -1,0 +1,31 @@
+# RViz Configuration File
+
+# Set the Fixed Frame
+GlobalOptions:
+  FixedFrame: "my_world" # Replace "map" with the appropriate frame_id for your robot's world
+
+# Add Robot Model
+RobotModel:
+  RobotDescription: "/home/akash/zal_ws/src/robot_description/urdf/robot/model.sdf" # Replace with the name of your robot's URDF parameter if using ROS 2 parameter server
+
+# Add a TF Frame to Visualize
+TF:
+  Frames:
+    - "my_world" # Replace "map" with the appropriate frame_id for your robot's world
+    - "chassis" # Replace "base_link" with the appropriate frame_id for your robot's base link
+    - "caster_wheel"
+    - "left_wheel"
+    - "right_wheel"
+    # Add any other TF frames you want to visualize here
+
+# Add Displays for Robot Model and TF
+Displays:
+  - Name: "RobotModel"
+    Enabled: True
+    Type: "rviz2/RobotModel"
+    Topic: "/tf"
+    RobotDescription: $(arg RobotDescription)
+
+  - Name: "TF"
+    Enabled: True
+    Type: "rviz2/TF"
