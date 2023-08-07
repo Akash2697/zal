@@ -93,7 +93,7 @@ class TaskActionServer(Node):
         
     
     def execute_callback(self, goal_handle):
-        # Implement the logic to move the robot to the target location
+
         self.goal_handle = goal_handle
         goal = self.goal_handle.request
         target_position = goal.goal_pose
@@ -101,11 +101,8 @@ class TaskActionServer(Node):
 
         self.goal_position_x = target_position[0]
         self.goal_position_y = target_position[1]
-        
-        # Move the robot to the target position
+
         self.move_robot_to(self.goal_position_x,self.goal_position_y,target_velocity)
-            
-        # Publish the feedback
         
         self.goal_handle.succeed()
         return Task.Result()
